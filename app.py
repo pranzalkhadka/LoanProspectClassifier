@@ -16,11 +16,27 @@ def home():
 def predict_api():
     data = request.json['data']
     print(data)
+
     input_df = pd.DataFrame(data, index=[0])
     new_data = preprocessor.transform(input_df)
+
     output = model.predict(new_data)
     print(output[0])
+
     return jsonify(output[0])
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = dict(request.form)
+    print(data)
+
+    input_df = pd.DataFrame.from_dict(data, orient='index').transpose()
+    final_input = preprocessor.transform(input_df)
+    
+    output = model.predict(final_input)[0]
+    
+    return render_template("home.html", prediction_text="The output is {}".format(output))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

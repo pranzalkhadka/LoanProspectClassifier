@@ -1,1 +1,47 @@
-<h1>hello how are you</h1>
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Boston House Price Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="Age" placeholder="Age" required="required" /><br>
+    	<input type="text" name="Gender" placeholder="Gender" required="required" /><br>
+        <input type="text" name="Experience" placeholder="Experience" required="required" /><br>
+        <input type="text" name="Income" placeholder="Income" required="required" /><br>
+        <input type="text" name="ZIP Code" placeholder="ZIP Code" required="required" /><br>
+        <input type="text" name="Family" placeholder="Family" required="required" /><br>
+        <input type="text" name="CCAvg" placeholder="CCAvg" required="required" /><br>
+        <input type="text" name="Education" placeholder="Education" required="required" /><br>
+        <input type="text" name="Mortgage" placeholder="Mortgage" required="required" /><br>
+        <input type="text" name="Home Ownership" placeholder="Home Ownership" required="required" /><br>
+        <input type="text" name="Personal Loan" placeholder="Personal Loan" required="required" /><br>
+        <input type="text" name="Securities Account" placeholder="Securities Account" required="required" /><br>
+        <input type="text" name="CD Account" placeholder="CD Account" required="required" /><br>
+        <input type="text" name="Online" placeholder="Online" required="required" /><br>
+        <input type="text" name="CreditCard" placeholder="CreditCard" required="required" /><br>
+
+       
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
