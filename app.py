@@ -35,7 +35,8 @@ def predict():
     
     output = model.predict(final_input)[0]
     
-    return render_template("home.html", prediction_text="The output is {}".format(output))
+    output_message = "Congratulations! You're eligible for a loan." if output == 1 else "We're sorry, but you're not eligible for a loan at this time."
+    return render_template("home.html", prediction_text=output_message)
 
 
 if __name__ == '__main__':
